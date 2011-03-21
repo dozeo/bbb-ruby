@@ -64,7 +64,7 @@ module Bbb
 
       doc = send_api_request(:create, {:name=>meeting_name, :meetingID=>meeting_id,
           :moderatorPW=>moderator_password, :attendeePW=>attendee_password,
-          :welcome=>welcome_message, :voiceBridge => voiceBridge ,
+          :welcome=>welcome_message, :dialin_number => dialin_number, :voiceBridge => voiceBridge ,
           :logoutURL=>logout_url, :maxParticpants=>max_participants} )
       doc.root.get_text('/response/meetingToken').to_s
     end
