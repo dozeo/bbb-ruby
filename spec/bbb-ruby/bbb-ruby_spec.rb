@@ -4,7 +4,7 @@ require 'bbb-ruby'
 
 BBB_SECURITY_SALT = '4019366e5354d8df5fcd3a2b51f652d1'
 BBB_URL = 'http://dozeo-two.dozeo.local/bigbluebutton/api'
-MEETING_ID = 'gem_spec_test'
+MEETING_ID = (Random.rand*10000000000000).to_i
 MEETING_NAME = 'Test the new API Gem'
 MODERATOR_PASSWORD = '333444'
 MODERATOR_NAME = 'Jake'
@@ -15,7 +15,7 @@ describe "bbb-ruby" do
   describe "Big Blue Button Meeting" do
     
     before(:each) do
-      @api = Bbb::Api.new(BBB_URL, BBB_SECURITY_SALT)
+      @api = Bbb::Api.new(BBB_URL, BBB_SECURITY_SALT, true)
     end
     
     it 'should create a meeting' do
@@ -25,11 +25,13 @@ describe "bbb-ruby" do
                           ATTENDEE_PASSWORD, 
                           'Test Meeting', 
                           '999999', 
-                          'bla', 100).should_not == false
+                          'bla', 100, '12345').should_not == false
     end
     
     it 'should give us a moderator url' do
-      @api.moderator_url(MEETING_ID, MODERATOR_NAME, MODERATOR_PASSWORD).should_not == false
+      modurl = @api.moderator_url(MEETING_ID, MODERATOR_NAME, MODERATOR_PASSWORD)
+      puts "MODERATOR URL #{modurl}"
+      modurl.should_not == false
     end
     
     it 'should give us a attendee url' do
