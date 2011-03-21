@@ -60,11 +60,11 @@ module Bbb
     # dialin_number::       Dial in number for conference
     # logout_url::          URL to return user to after exiting meeting
     def create_meeting(meeting_id, meeting_name, moderator_password, attendee_password, 
-        welcome_message = nil, dialin_number = nil, logout_url = nil, max_participants = nil)
+        welcome_message = nil, dialin_number = nil, logout_url = nil, max_participants = nil, voiceBridge = nil)
 
       doc = send_api_request(:create, {:name=>meeting_name, :meetingID=>meeting_id,
           :moderatorPW=>moderator_password, :attendeePW=>attendee_password,
-          :welcome=>welcome_message, :dialNumber=>dialin_number,
+          :welcome=>welcome_message, :voiceBridge => voiceBridge ,
           :logoutURL=>logout_url, :maxParticpants=>max_participants} )
       doc.root.get_text('/response/meetingToken').to_s
     end
