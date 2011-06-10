@@ -10,14 +10,12 @@ Gem::Specification.new do |s|
   s.email       = ["maximilian.mack@dozeo.com"]
   s.homepage    = "http://www.dozeo.com"
   s.summary     = %q{ruby gem for the BigBlueButton API}
-  s.description = %q{TODO: 
+  s.description = %q{
     Original code and author: http://code.google.com/p/bigbluebuttongem/ by Joe Kinsella.
     Changes by Maximilian Mack, dozeo Webinar Hosting GmbH.
   }
   s.test_files        = Dir["spec/**/*.rb"]
   s.add_development_dependency 'rspec'
-
-  s.rubyforge_project = "bbb-ruby"
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")

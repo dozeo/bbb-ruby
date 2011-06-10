@@ -2,8 +2,8 @@
 require 'spec_helper'
 require 'bbb-ruby'
 
-BBB_SECURITY_SALT = '4019366e5354d8df5fcd3a2b51f652d1'
-BBB_URL = 'http://dozeo-two.dozeo.local/bigbluebutton/api'
+BBB_SECURITY_SALT = 'b502340cd8c42371311c3e1c45afb382'
+BBB_URL = 'http://bigblue.dozeo.de/bigbluebutton/api'
 MEETING_ID = (Random.rand*10000000000000).to_i
 MEETING_NAME = 'Test the new API Gem'
 MODERATOR_PASSWORD = '333444'
